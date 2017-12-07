@@ -20,7 +20,6 @@ String.prototype.convertColorFormat = function(){
         if(s.length != 7){
             console.error('Hex color must be composed 6 characters... ex)#FFFAAA ');
         }else{
-            //s.substring(1,7) 이 hex인지 판별
             var hex = s.substring(1,7);
             if(!hex.isHex()){
                 console.error(`${s} is not hexadecimal...`)
@@ -29,13 +28,16 @@ String.prototype.convertColorFormat = function(){
             }
         }
     }else if(s.substring(0,3) == 'rgb' || s.substring(0,3) == 'RGB'){
-        // length로 판별 불가. 
-        if(s[4] != '(' || s[s.length] != ')'){
-            console.error('It is not RGB format..');
+        if(s[3] != '(' || s[s.length-1] != ')'){
+            console.error(`${s} is not RGB format..`);
+        }else{
+            var rgb = s.substring(4,s.length-1).split(',');
+            return `#${rgb[0].Dec2Hex()}${rgb[1].Dec2Hex()}${rgb[2].Dec2Hex()}`;
         }
     }else{
-        console.error('Check your String...');
+        console.error(`Check your String... ${s}`);
     }
+    return false;
 }
 String.prototype.isHex = function(){
     var s = this, regex = /[0-9A-Fa-f]{6}/g;
@@ -49,4 +51,8 @@ String.prototype.isHex = function(){
 String.prototype.Hex2Dec = function(){
     var s = this;
     return parseInt(s, 16);
+}
+String.prototype.Dec2Hex = function(){
+    var s = this;
+    return Number(s).toString(16).pad0(2);
 }
