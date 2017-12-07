@@ -4,6 +4,14 @@
 */
 String.prototype.pad0 = function(len, c){
     var s = this, c = c || '0';
+    if(!Number.isInteger(len)){
+        console.error(`"${len}" is NOT integer type...`);
+        return s;
+    }
+    if(c.toString().length!=1){
+        console.error(`"${c}" must be composed 1 character...`);
+        return s;
+    }
     while(s.length < len){
         s = c + s;
     }
