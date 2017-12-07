@@ -60,3 +60,13 @@ console.log(hex.convertColorFormat());      //  rgb(255, 255, 255);
 console.log(rgb.convertColorFormat().convertColorFormat()); //  rgb(0, 0, 0);
 
 ```
+
+## commaFormat()
+
+> 숫자를 세자리씩 끊어서 ,를 붙여준다.
+
+```js
+
+console.log('123456'.commaFormat());        //  123,456
+console.log('1234'.commaFormat());          //  1,234
+```

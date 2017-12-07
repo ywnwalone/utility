@@ -64,3 +64,7 @@ String.prototype.Dec2Hex = function(){
     var s = this;
     return Number(s).toString(16).pad0(2);
 }
+String.prototype.commaFormat = function(){
+    var s = this;
+    return Number.isInteger(s) ? s.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : s;
+}
