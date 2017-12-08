@@ -68,3 +68,8 @@ String.prototype.commaFormat = function(){
     var s = this;
     return Number.isInteger(s) ? s.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : s;
 }
+
+String.prototype.replaceAll = function(before, after){
+    var s = this;
+    return s.split(before).join(after);
+}

@@ -70,3 +70,13 @@ console.log(rgb.convertColorFormat().convertColorFormat()); //  rgb(0, 0, 0);
 console.log('123456'.commaFormat());        //  123,456
 console.log('1234'.commaFormat());          //  1,234
 ```
+
+## replaceAll(a,b)
+
+> 바꾸고 싶은 모든 문자를 치환해준다.
+
+```js
+
+console.log('123123'.replaceAll('1','_'));      //  _23_23
+console.log('abcdefg'.replaceAll('abc','^^^')); //  ^^^defg
+```
