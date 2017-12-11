@@ -73,3 +73,36 @@ String.prototype.replaceAll = function(before, after){
     var s = this;
     return s.split(before).join(after);
 }
+
+String.prototype.someTimeAgo = function(){
+    var s = Date.parse(this);
+    const SEC = 1000;
+    const MIN = SEC * 60;
+    const HOUR = MIN * 60;
+    const DAY = HOUR * 24;
+    const MONTH = DAY * 30;
+    const YEAR = DAY * 365;
+    
+    var now = new Date();
+    var gap = Date.parse(now) - s;
+
+    var str = '';
+
+    if(gap / YEAR >= 1 ){
+        str = Math.floor(gap/YEAR)+'년 전';
+    }else if(gap / MONTH >= 1){
+        str = Math.floor(gap/MONTH)+'달 전';
+    }else if(gap / DAY >= 1){
+        str = Math.floor(gap/DAY)+'일 전';
+    }else if(gap/HOUR >= 1){
+        str = Math.floor(gap/HOUR)+'시간 전';
+    }else if(gap/MIN >=1){
+        str = Math.floor(gap/MIN)+'분 전';
+    }else if(gap/SEC >=1){
+        str = Math.floor(gap/SEC)+'초 전';
+    }else{
+        str = 'ERROR';
+    }
+
+    return str;
+}

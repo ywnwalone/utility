@@ -80,3 +80,13 @@ console.log('1234'.commaFormat());          //  1,234
 console.log('123123'.replaceAll('1','_'));      //  _23_23
 console.log('abcdefg'.replaceAll('abc','^^^')); //  ^^^defg
 ```
+
+## someTimeAgo()
+
+> 몇 년전, 몇 달전, 며칠 전, 몇시간 전, 몇 분전, 몇 초전
+
+```js
+console.log('2017-12-10'.someTimeAgo());        // 1일 전
+console.log('2017-11-10'.someTimeAgo());        // 1달 전
+console.log('2016-12-10'.someTimeAgo());        // 1년 전
+```
